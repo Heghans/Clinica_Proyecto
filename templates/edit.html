@@ -1,0 +1,39 @@
+    <link href="/static/output.css" type="text/css" rel="stylesheet">
+<!-- templates/edit.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-2xl font-bold text-yellow-700 mb-6">✏️ Editar Paciente</h2>
+
+<form method="POST" action="{{ url_for('editar', id=paciente.id) }}" class="bg-white p-6 rounded-lg shadow space-y-5">
+
+  <div>
+    <label class="block font-semibold mb-1">👤 Nombre</label>
+    <input type="text" name="nombre" value="{{ paciente.nombre }}" required class="w-full border rounded px-3 py-2">
+  </div>
+
+  <div>
+    <label class="block font-semibold mb-1">🆔 Cédula</label>
+    <input type="text" name="cedula" value="{{ paciente.cedula }}" required class="w-full border rounded px-3 py-2">
+  </div>
+
+  <div>
+    <label class="block font-semibold mb-1">🎂 Edad</label>
+    <input type="number" name="edad" value="{{ paciente.edad }}" required class="w-full border rounded px-3 py-2">
+  </div>
+
+  <div>
+    <label class="block font-semibold mb-1">⚧️ Género</label>
+    <select name="genero" class="w-full border rounded px-3 py-2">
+      <option {% if paciente.genero == "Masculino" %}selected{% endif %}>Masculino</option>
+      <option {% if paciente.genero == "Femenino" %}selected{% endif %}>Femenino</option>
+      <option {% if paciente.genero == "Otro" %}selected{% endif %}>Otro</option>
+    </select>
+  </div>
+
+  <div class="flex justify-between">
+    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded font-semibold">Actualizar</button>
+    <a href="{{ url_for('index') }}" class="text-blue-700 hover:underline">← Cancelar</a>
+  </div>
+</form>
+{% endblock %}

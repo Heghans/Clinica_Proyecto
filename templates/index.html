@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <link href="/static/output.css" type="text/css" rel="stylesheet">
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-3xl font-bold text-blue-900">🩺 Pacientes Registrados</h2>
+  <a href="{{ url_for('crear') }}" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-medium shadow">
+    + Nuevo Paciente
+  </a>
+</div>
+
+<div class="overflow-x-auto bg-white rounded-lg shadow">
+  <table class="min-w-full text-sm text-gray-800">
+    <thead class="bg-blue-700 text-white uppercase text-xs tracking-wider">
+      <tr>
+        <th class="px-6 py-3 text-left">Nombre</th>
+        <th class="px-6 py-3 text-left">Cédula</th>
+        <th class="px-6 py-3 text-left">Edad</th>
+        <th class="px-6 py-3 text-left">Género</th>
+        <th class="px-6 py-3 text-left">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      {% for p in pacientes %}
+      <tr class="hover:bg-blue-50 transition-all">
+        <td class="px-6 py-4 font-semibold">{{ p.nombre }}</td>
+        <td class="px-6 py-4">{{ p.cedula }}</td>
+        <td class="px-6 py-4">{{ p.edad }}</td>
+        <td class="px-6 py-4">{{ p.genero }}</td>
+        <td class="px-6 py-4">
+          <div class="flex gap-2">
+            <a href="{{ url_for('editar', id=p.id) }}" class="text-sm bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md font-semibold transition">
+              ✏️ Editar
+            </a>
+            <a href="{{ url_for('eliminar', id=p.id) }}" onclick="return confirm('¿Eliminar este paciente?')" class="text-sm bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md font-semibold transition">
+              🗑️ Eliminar
+            </a>
+          </div>
+        </td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="5" class="text-center py-6 text-gray-500">No hay pacientes registrados.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

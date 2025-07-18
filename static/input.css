@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme{
+    --color-azul-nav: #0056bd;
+    --color-gris:#2b2b2b;
+}
+
+@layer base{
+
+    .main-bg {
+    background-image: url('./img/img-hero-section.jpg');  /* Cambiá este path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+        /* Texto blanco */
+    .contenido {
+    color: white; /* ← texto blanco */
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* opcional: fondo oscuro semitransparente */
+    border-radius: 12px;
+    }
+
+
+    .img-doctor{
+        width: 30rem;
+        height: auto;
+    }
+
+
+    .links{@apply m-5 text-lg text-white font-bold}
+    
+    .hero-content{
+    @apply justify-center place-content-center 
+    } 
+        
+    .roboto-slab{
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+    .montserrat{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+}

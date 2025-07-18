@@ -1,0 +1,41 @@
+<!-- templates/create.html -->
+
+
+    <link href="/static/output.css" type="text/css" rel="stylesheet">
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-2xl font-bold text-teal-800 mb-6">🧑‍⚕️ Registrar Nuevo Paciente</h2>
+
+<form method="POST" action="{{ url_for('crear') }}" class="bg-white p-6 rounded-lg shadow space-y-5">
+  <div>
+    <label class="block font-semibold mb-1">👤 Nombre</label>
+    <input type="text" name="nombre" required class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-teal-500">
+  </div>
+
+  <div>
+    <label class="block font-semibold mb-1">🆔 Cédula</label>
+    <input type="text" name="cedula" required class="w-full border rounded px-3 py-2">
+  </div>
+
+  <div>
+    <label class="block font-semibold mb-1">🎂 Edad</label>
+    <input type="number" name="edad" required class="w-full border rounded px-3 py-2">
+  </div>
+
+  <div>
+    <label class="block font-semibold mb-1">⚧️ Género</label>
+    <select name="genero" required class="w-full border rounded px-3 py-2">
+      <option value="">Seleccione</option>
+      <option>Masculino</option>
+      <option>Femenino</option>
+      <option>Otro</option>
+    </select>
+  </div>
+
+  <div class="flex justify-between">
+    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded font-semibold">Guardar</button>
+    <a href="{{ url_for('index') }}" class="text-teal-700 hover:underline">← Cancelar</a>
+  </div>
+</form>
+{% endblock %}
