@@ -92,14 +92,7 @@ Accede desde `http://localhost:5000`.
  ┗ 📄README.md
 ```
 
----
-
-## 📸 Capturas de pantalla
-
-> Agrega aquí imágenes del sistema en funcionamiento o la URL del despliegue (si aplica).
-
----
 
 ## 📜 Licencia
 
-Proyecto de uso educativo – Universidad Latina.
+Proyecto de uso educativo – Universidad Ulacit, Melvin Alfaro todos los derechos reservados.
